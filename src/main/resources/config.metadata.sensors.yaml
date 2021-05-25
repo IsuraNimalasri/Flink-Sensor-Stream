@@ -1,0 +1,27 @@
+# This configuration file the metadata of your sensors.
+
+# Row event posision wise sensor name tag
+#sensorDisplayNames :
+#  - 1 : Sensor-1
+#  - 2 : Sensor-2
+#  - 3 : Sensor-3
+#  - 4 : Sensor-4
+#  - 5 : Sensor-5
+#  - 6 : Sensor-6
+#  - 7 : Sensor-7
+#  - 8 : Sensor-8
+#  - 9 : Sensor-9
+#  - 10 : Sensor-10
+
+# This properties we can use when senor come up with missing values  or empty value.
+# Sensor-1 : ignore  --> ignore value from stream
+# Sensor-1 : mode --> replace Null or N/A value from Mode ( Mode value of given window)
+# Sensor-1 : median --> replace Null or N/A value from Median ( Median value of given window )
+
+# missingValueStratergy : ignore
+
+
+
+
+
+

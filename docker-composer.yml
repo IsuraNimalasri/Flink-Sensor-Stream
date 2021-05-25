@@ -1,0 +1,36 @@
+version: "2.1"
+services:
+  jobmanager:
+    image: flink:1.11
+    expose:
+      - "6123"
+    ports:
+      - "8081:8081"
+    command: jobmanager
+    environment:
+      - JOB_MANAGER_RPC_ADDRESS=jobmanager
+
+  taskmanager:
+    image: flink:1.11
+    expose:
+      - "6121"
+      - "6122"
+    depends_on:
+      - jobmanager
+    command: taskmanager
+    links:
+      - "jobmanager:jobmanager"
+    environment:
+      - JOB_MANAGER_RPC_ADDRESS=jobmanager
+
+  influxdb:
+    image: influxdb:latest
+    container_name: influxdb
+    environment:
+      - INFLUXDB_ADMIN_USER_PASSWORD=admin
+      - INFLUXDB_USER=admin
+      - INFLUXDB_USER_PASSWORD=admin123
+      - INFLUXDB_DB=anomaly_detection
+
+    ports:
+      - "8086:8086"
